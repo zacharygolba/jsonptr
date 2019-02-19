@@ -1,6 +1,6 @@
 # jsonptr
 
-[![CircleCI](https://img.shields.io/circleci/project/github/zacharygolba/jsonptr/master.svg?style=flat-square)](https://circleci.com/gh/zacharygolba/jsonptr/tree/master) [![Codecov](https://img.shields.io/codecov/c/github/zacharygolba/jsonptr/master.svg?style=flat-square)](https://codecov.io/gh/zacharygolba/jsonptr/branch/master) ![npm](https://img.shields.io/npm/v/@zakgolba/jsonptr.svg?style=flat-square)
+[![CircleCI](https://img.shields.io/circleci/project/github/zacharygolba/jsonptr/master.svg?style=flat-square)](https://circleci.com/gh/zacharygolba/jsonptr/tree/master) [![Codecov](https://img.shields.io/codecov/c/github/zacharygolba/jsonptr/master.svg?style=flat-square)](https://codecov.io/gh/zacharygolba/jsonptr/branch/master) [![npm](https://img.shields.io/npm/v/@zakgolba/jsonptr.svg?style=flat-square)](https://www.npmjs.com/package/@zakgolba/jsonptr)
 
 Read and write values to locations referenced by JSON pointers as described in [RFC 6901](https://tools.ietf.org/html/rfc6901).
 
