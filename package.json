@@ -1,0 +1,36 @@
+{
+  "name": "@zakgolba/jsonptr",
+  "version": "1.0.0",
+  "description": "Read and write values to locations referenced by JSON pointers as described in RFC 6901",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "license": "(Apache 2.0 OR MIT)",
+  "authors": [
+    "Zachary Golba <zachary.golba@postlight.com>"
+  ],
+  "keywords": [
+    "assign",
+    "cache",
+    "dereference",
+    "json",
+    "pointer",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "tsc --declaration --sourceMap",
+    "clean": "rm -rf *.log coverage dist",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest --config jest.config.json --preset ts-jest"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.5",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "23.10.5",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.3.3"
+  }
+}

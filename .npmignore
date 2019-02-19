@@ -1,0 +1,12 @@
+# See https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package for more about
+# ignoring files.
+
+.editorconfig
+.prettierrc
+.vscode/
+circle.yml
+coverage/
+jest.config.json
+src/
+tsconfig.json
+tslint.json

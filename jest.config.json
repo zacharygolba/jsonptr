@@ -1,0 +1,4 @@
+{
+  "collectCoverageFrom": ["<rootDir>/src/*.ts"],
+  "testMatch": ["<rootDir>/src/*.test.ts"]
+}
