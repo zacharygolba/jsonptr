@@ -1,5 +1,7 @@
 import * as cache from "./cache";
-import * as token from "./token";
+import { compile, parse } from "./token";
+
+export { compile, parse };
 
 /**
  * Represents the operand of `assign` and `deref` operations.
@@ -31,9 +33,9 @@ export interface Operand {
  * ```
  */
 export function assign(operand: Operand, pointer: string, value: any): boolean {
-  const tokens = [...token.parse(pointer)];
+  const tokens = [...parse(pointer)];
   const lastToken = tokens.pop();
-  const parentValue = deref(operand, token.compile(tokens));
+  const parentValue = deref(operand, compile(tokens));
 
   if (lastToken == null || parentValue == null) {
     return false;
@@ -67,7 +69,7 @@ export function deref(operand: Operand, pointer: string): unknown {
     return entries[pointer];
   }
 
-  for (const key of token.parse(pointer)) {
+  for (const key of parse(pointer)) {
     value = value[key];
     if (value == null) {
       value = undefined;

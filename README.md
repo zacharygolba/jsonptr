@@ -39,6 +39,20 @@ console.log(jsonptr.assign(data, "/invalid/reference", "Hello, world!"));
 // => false
 ```
 
+#### compile(tokens: Iterable\<string>): string
+
+Compiles and returns a JSON pointer from an iterable of unescaped tokens.
+
+```typescript
+import jsonptr from "@zakgolba/jsonptr";
+
+console.log(jsonptr.compile(["hello", "world"]));
+// => /hello/world
+
+console.log(jsonptr.compile(["hello/world", "pointer"]));
+// => /hello~1world/pointer
+```
+
 #### deref(operand: object, pointer: string): unknown
 
 Attempts to read and return the value at the location that the `pointer` references.
@@ -52,6 +66,23 @@ console.log(jsonptr.deref(data, "/hello/world"));
 // => Hello, world!
 console.log(jsonptr.deref(data, "/this/points/nowhere"));
 // => undefined
+```
+
+#### parse(pointer: string): IterableIterator\<string>
+
+Lazily parses and unescapes each token in the provided `pointer`.
+
+```typescript
+import jsonptr from "@zakgolba/jsonptr";
+
+console.log([...jsonptr.parse("/hello/world")]);
+// => ["hello", "world"]
+
+for (const token of jsonptr.parse("/hello~1world/pointer")) {
+  console.log(token);
+}
+// => hello/world
+// => pointer
 ```
 
 ## License

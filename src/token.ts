@@ -1,6 +1,19 @@
 const UNESCAPED = /([~/])/g;
 const ESCAPED = /(~[01])/g;
 
+/**
+ * Compiles and returns a JSON pointer from an iterable of unescaped tokens.
+ *
+ * ```typescript
+ * import jsonptr from "@zakgolba/jsonptr";
+ *
+ * console.log(jsonptr.compile(["hello", "world"]));
+ * // => /hello/world
+ *
+ * console.log(jsonptr.compile(["hello/world", "pointer"]));
+ * // => /hello~1world/pointer
+ * ```
+ */
 export function compile(tokens: Iterable<string>): string {
   return `/${Array.from(tokens, escape).join("/")}`;
 }
@@ -16,6 +29,22 @@ export function escape(token: string): string {
   }
 }
 
+/**
+ * Lazily parses and unescapes each token in the provided `pointer`.
+ *
+ * ```typescript
+ * import jsonptr from "@zakgolba/jsonptr";
+ *
+ * console.log([...jsonptr.parse("/hello/world")]);
+ * // => ["hello", "world"]
+ *
+ * for (const token of jsonptr.parse("/hello~1world/pointer")) {
+ *   console.log(token);
+ * }
+ * // => hello/world
+ * // => pointer
+ * ```
+ */
 export function* parse(pointer: string): IterableIterator<string> {
   const chars = pointer[Symbol.iterator]();
   let result = chars.next();
